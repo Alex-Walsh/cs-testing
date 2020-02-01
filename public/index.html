@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/index.css">
+    <title> CS Testing </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script type="text/javascript">
+    var firebaseConfig = {
+  apiKey: "AIzaSyAVtz9lsyxoVFrYtTt7DX-_JR--eSV8byY",
+  authDomain: "cs-testing-b4729.firebaseapp.com",
+  databaseURL: "https://cs-testing-b4729.firebaseio.com",
+  projectId: "cs-testing-b4729",
+  storageBucket: "cs-testing-b4729.appspot.com",
+  messagingSenderId: "708245994981",
+  appId: "1:708245994981:web:274c13667744477016430c",
+  measurementId: "G-JKYJYZSSVF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script type="text/javascript">
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(function() {
+        // Existing and future Auth states are now persisted in the current
+        // session only. Closing the window would clear any existing state even
+        // if a user forgets to sign out.
+        // ...
+        // New sign-in will be persisted with session persistence.
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+
+    </script>
+
+    <div class="wrapper">
+      <div class="student">
+        <a href="student-landing.html">Student Sign In/Up</a>
+      </div>
+      <div class="teacher">
+        <a href="teacher-landing.html">Teacher Sign In/Up</a>
+      </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

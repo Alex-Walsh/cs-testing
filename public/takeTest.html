@@ -1,0 +1,45 @@
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Take Test</title>
+    <link rel="stylesheet" href="/css/master.css">
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+     <script src="/__/firebase/7.6.0/firebase-app.js"></script>
+     <script src="/__/firebase/7.6.0/firebase-auth.js"></script>
+     <script src="/__/firebase/7.6.0/firebase-firestore.js"></script>
+     <script src="/__/firebase/init.js"></script>
+     <script>
+       // Your web app's Firebase configuration
+       var firebaseConfig = {
+         apiKey: "AIzaSyAVtz9lsyxoVFrYtTt7DX-_JR--eSV8byY",
+         authDomain: "cs-testing-b4729.firebaseapp.com",
+         databaseURL: "https://cs-testing-b4729.firebaseio.com",
+         projectId: "cs-testing-b4729",
+         storageBucket: "cs-testing-b4729.appspot.com",
+         messagingSenderId: "708245994981",
+         appId: "1:708245994981:web:274c13667744477016430c",
+         measurementId: "G-JKYJYZSSVF"
+       };
+       // Initialize Firebase
+       const firestore = firebase.firestore();
+     </script>
+  </head>
+  <body>
+    <p> Enter Test Code </p>
+    <input type="text" id="testID" placeholder="Enter test code">
+    <h3 id="name"></h3>
+    <h4 id="challenge"></h4>
+    <h5 id="percentage"></h5>
+    <button type="button" onclick="base()">Show test Details</button>
+    <div class="insert"></div>
+    <div id="wrapper">
+      <iframe height="700px" width="100%" id="editor" src="https://repl.it/@Alexwalsh/RosybrownOldVirtualmachines?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    </div>
+    <div id="possible-cheat">
+      <p>You are suspected of cheating</p>
+    </div>
+    <script src="/js/addForbidden.js" charset="utf-8"></script>
+    <script src="/js/take-test.js" charset="utf-8"></script>
+  </body>
+</html>

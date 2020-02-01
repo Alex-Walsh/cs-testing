@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/spanel.css">
+    <title> Student Panel </title>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script type="text/javascript">
+    var firebaseConfig = {
+  apiKey: "AIzaSyAVtz9lsyxoVFrYtTt7DX-_JR--eSV8byY",
+  authDomain: "cs-testing-b4729.firebaseapp.com",
+  databaseURL: "https://cs-testing-b4729.firebaseio.com",
+  projectId: "cs-testing-b4729",
+  storageBucket: "cs-testing-b4729.appspot.com",
+  messagingSenderId: "708245994981",
+  appId: "1:708245994981:web:274c13667744477016430c",
+  measurementId: "G-JKYJYZSSVF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="/js/stp.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form id="contact">
+      <h3> Student Panel </h3>
+      <fieldset>
+        <button type="button" id="contact-submit" name="button" onclick="sTT()">Take A Test</button>
+      </fieldset>
+      <fieldset>
+        <button type="button" id="contact-submit" onclick="signOut()">Sign Out</button>
+      </fieldset>
+    </form>
+  </div>
+  <script src="/js/sTT.js" charset="utf-8"></script>
+  </body>
+</html>

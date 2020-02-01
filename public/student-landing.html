@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/landing.css">
+  <title> Student Sign In/Up </title>
+
+</head>
+<body>
+  <div class="container">
+  <form id="contact">
+    <h3> Student Sign In/Up </h3>
+    <fieldset>
+      <input placeholder="email" id="email" type="email" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="password" id="password" type="password" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="name, only required if signing up" id="name" type="text" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <button type="button" id="contact-submit" onclick="toggleSignIn()">Sign In</button>
+    </fieldset>
+    <fieldset>
+      <button type="button" id="contact-submit" onclick="handleSignUp()">Sign Up</button>
+    </fieldset>
+  </form>
+</div>
+<!-- Import and configure the Firebase SDK -->
+<script src="/__/firebase/7.6.0/firebase-app.js"></script>
+<script src="/__/firebase/7.6.0/firebase-auth.js"></script>
+<script src="/__/firebase/7.6.0/firebase-firestore.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="/js/studentsn.js" charset="utf-8"></script>
+<!--<script src="/js/cleanup.js" charset="utf-8"></script>-->
+</body>
+</html>

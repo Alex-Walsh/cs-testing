@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Teacher Panel </title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!-- Compiled and minified CSS materialize CSS-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link rel="stylesheet" href="/css/deleteVisibility.css">
+    <script type="text/javascript">
+    var firebaseConfig = {
+  apiKey: "AIzaSyAVtz9lsyxoVFrYtTt7DX-_JR--eSV8byY",
+  authDomain: "cs-testing-b4729.firebaseapp.com",
+  databaseURL: "https://cs-testing-b4729.firebaseio.com",
+  projectId: "cs-testing-b4729",
+  storageBucket: "cs-testing-b4729.appspot.com",
+  messagingSenderId: "708245994981",
+  appId: "1:708245994981:web:274c13667744477016430c",
+  measurementId: "G-JKYJYZSSVF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <script type="text/javascript">
+      function signOut(){
+        if (firebase.auth().currentUser) {
+          // [START signout]
+          firebase.auth().signOut();
+          // [END signout]
+        }
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (!user) {
+            window.location.href = "index.html";
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <p>Teacher Panel</p>
+    <button type="button" onclick="signOut()">Sign out</button>
+    <button type="button" name="button"></button>
+    <a href="createTest.html">Create A Test</a>
+    <a href="teacherTests.html">Your Tests</a>
+    <button type="button" onclick="showTests()" name="button">My Tests (show)</button>
+    <div class="tests">
+
+    </div>
+<div class="deleteField">
+  <input type="text" id="requestedDeleteID" placeholder="Enter the name of the test you wish to delete"/>
+  <button type="button" onclick="deleteTest();">Delete</button>
+</div>
+    <script src="/js/deleteTest.js" charset="utf-8"></script>
+    <script src="/js/showTests.js" charset="utf-8"></script>
+    <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
