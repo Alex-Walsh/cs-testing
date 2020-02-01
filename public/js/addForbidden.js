@@ -39,3 +39,5 @@ function addForbidden() {
     cheaters: currentCheaters
   });
 }
+
+//Making sure that git works
