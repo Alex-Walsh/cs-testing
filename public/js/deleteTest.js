@@ -1,71 +1,59 @@
 var db = firebase.firestore();
-var needed = [];
-var user = firebase.auth().currentUser;
 var email;
 var index = 0;
 var requestedDeleteID;
-var counter = 0;
 
 
-function continueDeletion(){
-  requestedDeleteID = document.getElementById('requestedDeleteID').value;
-  var teachersID = db.collection("teachers").doc(email);
-  teachersID.get().then(function(doc){
-    if (doc.exists) {
-      var data = doc.data();
-      for (var i = 0; i < data.tests.length; i++) {
-        needed.push(data.tests[i]);
-        if (data.tests[i] === requestedDeleteID) {
-          index = i;
-        }
-      }
-      needed.splice(index,1);
-    } else {
-      console.log("Document doesn't exist");
-    }
-  }).catch(function(error){
-    console.log("something went wrong", error);
-  });
-  teachersID.update({
-    tests: needed
-  }).catch(function(error) {
-    console.log("Something went wrong while updating the file");
-  });
-}
-
-
-function deleteTest(){
-
-  requestedDeleteID = document.getElementById('requestedDeleteID').value;
+function requestTestDeletion(){
+  var counter = 0;
+  var needed = [];
+  var user = firebase.auth().currentUser;
   if (user != null) {
-    user.providerData.foreach(function(profile){
+    user.providerData.forEach(function(profile){
       email = profile.email;
-      });
-  var teachersID = db.collection("teachers").doc(email);
-  var docRef = db.collection("tests").doc(testID);
-
-teachersID.get().then(function(doc){
-    tests = doc.data();
-    for (var i = 0; i < tests.tests.length; i++) {
-      if (tests.tests[i] === requestedDeleteID) {
-        counter = 1;
+    });
+    requestedDeleteID = document.getElementById('requestedDeleteID').value;
+    db.collection("teachers").doc(email).get().then(function(doc){
+      var data = doc.data();
+      if (data.tests.includes(requestedDeleteID)) {
+        db.collection("tests").doc(requestedDeleteID).delete().then(function(){
+          db.collection("teachers").doc(email).get().then(function(doc){
+            var data = doc.data();
+            for (var i = 0; i < data.tests.length; i++) {
+              needed.push(data.tests[i]);
+            }
+            for (var i = 0; i < data.tests.length; i++) {
+              if (data.tests[i] == requestedDeleteID) {
+                break;
+              } else {
+                counter += 1;
+              }
+            }
+            needed.splice(counter, 1);
+            console.log(needed);
+            db.collection("teachers").doc(email).update({
+              tests: needed
+            }).catch(function(error){
+              console.log("Error while updating teacher's tests: ", error);
+            });
+          }).catch(function(error){
+            console.log(error);
+          });
+          location.reload();
+        }).catch(function(error){
+          console.log("Error deleting document: ", error);
+        });
+      } else {
+        console.log("Insufficient Permissions");
       }
-    }
-    if (counter == 1) {
-      continueDeletion();
-    }
-}).catch(function(error){
-  console.log("Something went wrong", error);
-});
+    }).catch(function(error){
+      console.log("error while getting teacher profile document: ", error);
+    });
 
-
+  } else {
+    console.log("You aren't signed in");
+  }
 }
-}
-
-
-
-
-
 
 
 

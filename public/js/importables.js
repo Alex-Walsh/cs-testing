@@ -8,5 +8,5 @@ function userSignout(){
           if (!user) {
             window.location.href = "student-landing.html";
         }
-    })
+    });
 }

@@ -49,14 +49,13 @@ firebase.initializeApp(firebaseConfig);
     <button type="button" onclick="signOut()">Sign out</button>
     <button type="button" name="button"></button>
     <a href="createTest.html">Create A Test</a>
-    <a href="teacherTests.html">Your Tests</a>
     <button type="button" onclick="showTests()" name="button">My Tests (show)</button>
     <div class="tests">
 
     </div>
 <div class="deleteField">
   <input type="text" id="requestedDeleteID" placeholder="Enter the name of the test you wish to delete"/>
-  <button type="button" onclick="deleteTest();">Delete</button>
+  <button type="button" onclick="requestTestDeletion()">Delete</button>
 </div>
     <script src="/js/deleteTest.js" charset="utf-8"></script>
     <script src="/js/showTests.js" charset="utf-8"></script>
