@@ -4,6 +4,11 @@ var index = 0;
 var requestedDeleteID;
 
 
+
+function updateTests(email, array){
+
+}
+
 function requestTestDeletion(){
   var counter = 0;
   var needed = [];
@@ -17,29 +22,6 @@ function requestTestDeletion(){
       var data = doc.data();
       if (data.tests.includes(requestedDeleteID)) {
         db.collection("tests").doc(requestedDeleteID).delete().then(function(){
-          db.collection("teachers").doc(email).get().then(function(doc){
-            var data = doc.data();
-            for (var i = 0; i < data.tests.length; i++) {
-              needed.push(data.tests[i]);
-            }
-            for (var i = 0; i < data.tests.length; i++) {
-              if (data.tests[i] == requestedDeleteID) {
-                break;
-              } else {
-                counter += 1;
-              }
-            }
-            needed.splice(counter, 1);
-            console.log(needed);
-            db.collection("teachers").doc(email).update({
-              tests: needed
-            }).catch(function(error){
-              console.log("Error while updating teacher's tests: ", error);
-            });
-          }).catch(function(error){
-            console.log(error);
-          });
-          location.reload();
         }).catch(function(error){
           console.log("Error deleting document: ", error);
         });
@@ -48,6 +30,15 @@ function requestTestDeletion(){
       }
     }).catch(function(error){
       console.log("error while getting teacher profile document: ", error);
+    });
+    db.collection("teachers").doc(email).get().then(function(doc){
+      var data = doc.data();
+      var newTests = data.tests.filter((name) => name !== requestedDeleteID);
+      db.collection("teachers").doc(email).update({
+        tests: newTests
+      });
+    }).catch(function(error){
+      console.log("Error getting teachers profile and updating");
     });
 
   } else {
