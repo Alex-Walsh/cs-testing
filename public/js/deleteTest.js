@@ -34,6 +34,7 @@ function requestTestDeletion(){
     db.collection("teachers").doc(email).get().then(function(doc){
       var data = doc.data();
       var newTests = data.tests.filter((name) => name !== requestedDeleteID);
+      console.log(newTests);
       db.collection("teachers").doc(email).update({
         tests: newTests
       });
