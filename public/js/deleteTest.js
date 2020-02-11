@@ -3,12 +3,6 @@ var email;
 var index = 0;
 var requestedDeleteID;
 
-
-
-function updateTests(email, array){
-
-}
-
 function requestTestDeletion(){
   var counter = 0;
   var needed = [];

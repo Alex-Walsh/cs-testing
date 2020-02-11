@@ -38,10 +38,12 @@ function showTests() {
         </div>
         <div class="card-action">
           <button onclick="deleteTest()">Delete</button>
+          <a href="testSettings.html">Settings</a>
         </div>
       </div>
     </div>
   </div>
+
         `;
         html += indivTests;
       }
