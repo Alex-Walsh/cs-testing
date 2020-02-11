@@ -1,4 +1,4 @@
-var db = firebase.firestore();
+const db = firebase.firestore();
 var email;
 var index = 0;
 var requestedDeleteID;
