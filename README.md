@@ -1,6 +1,6 @@
 # cs-testing
 ## A Platform for testing computer science students
-### Not at all finished
+### Not at all finished - App is currently broken becauses of new html pages that weren't linked with js
 
 #### uses firebase auth,firestore
 
